@@ -1,0 +1,43 @@
+# --- Artefatti di compilazione LaTeX ---
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.dvi
+*.xdv
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.pdfsync
+
+# Indici
+*.idx
+*.ilg
+*.ind
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.acn
+*.acr
+*.alg
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# latexmk
+*.fdb_latexmk
+
+# Editor / sistema
+*.bak
+*.swp
+*~
+.DS_Store

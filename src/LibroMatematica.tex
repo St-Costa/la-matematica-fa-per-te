@@ -96,8 +96,7 @@
 \titlespacing*{\section}{0pt}{0pt}{5pt}
 
 
-%per l'indice in "Preambolo"
-\addtocontents{toc}{\contentsline {section}{Preambolo}{i}}
+%per l'indice in "Preambolo": vedi \addcontentsline dopo \section*{Preambolo}
 
 
 %nome della subsection nell'header
@@ -150,7 +149,8 @@
 	\setcounter{page}{1}
 	
 	%------------------------------PREAMBOLO
-	\section*{Preambolo}	
+	\section*{Preambolo}
+	\addcontentsline{toc}{section}{Preambolo}
 	Questo libro nasce con il desiderio di chiarire cosa sia davvero la matematica e cosa significhi studiarla. Purtroppo alle superiori, per via delle poche ore, non si trasmette agli studenti la vera essenza della materia, che diventa quasi esclusivamente studio di esercizi e successiva ripetizione degli stessi. Questa vuole essere un'introduzione, un primo sguardo al mondo matematico universitario e vuole dare un'idea di come si studi alla facolt\'a di matematica riportando i primi argomenti (che non richiedono preparazione di alcun tipo). Il tema centrale, che fa da filo conduttore, \'e il concetto di insieme, concetto fondante in matematica. Verranno date diverse definizioni e mostrate alcune dimostrazioni, principale argomento nello studio universitario, per poi spiegare la costruzione dei numeri e infine, l'argomento pi\'u difficile, verranno dimostrati i criteri di divisibilit\'a.\\
 	L'ordine dei capitoli \'e tale da presentare una difficolt\'a crescente negli argomenti, ma \'e stato originariamente scelto in modo da trasmettere la struttura sequenziale dello studio della matematica, il quale si sviluppa su conoscenze precedentemente acquisite, che quindi devono essere sufficientemente radicate. Non intendo dire che per entrare in facolt\'a sia necessario essere usciti da un liceo (sicuramente torna utile, questo \'e certo), ma che lo studio debba essere giornaliero e intrapreso fin dal primo giorno.\\
 	Se non \'e tutto chiaro alla prima lettura non c'\'e da allarmarsi: il formalismo matematico, la principale causa di disorientamento nelle nuove matricole, \'e una questione di forma mentis che si acquisisce anche con l'esperienza. Ognuno ha i propri tempi per imparare e il mio consiglio \'e sfruttare questo libro per mettersi alla prova con i primi argomenti (non necessariamente intuitivi) trattati all'universit\'a dedicandoci tutto il tempo necessario. La scelta di portare i primi argomenti trattati \'e utile ovviamente perch\'e sono i pi\'u semplici, ma anche perch\'e non necessitano di conoscenze pregresse, quindi quello che imparerete in questo libro \'e esattamente quello che imparereste nei primi giorni di universit\'a.	

@@ -50,7 +50,7 @@ dell'insieme di Cantor (*Cantor set*).
 
 Il PDF già compilato è incluso nel repository:
 
-- **[LibroMatematica.pdf](LibroMatematica.pdf)** &mdash; versione da leggere/stampare.
+- **[dist/LibroMatematica.pdf](dist/LibroMatematica.pdf)** &mdash; versione da leggere/stampare.
 
 ## Compilare dai sorgenti
 
@@ -65,40 +65,53 @@ Il PDF già compilato è incluso nel repository:
 
 ### Compilazione
 
-```bash
-# due passate: la seconda risolve indice e riferimenti incrociati
-pdflatex LibroMatematica.tex
-pdflatex LibroMatematica.tex
-```
-
-oppure, in un colpo solo:
+Dalla root del repository:
 
 ```bash
-latexmk -pdf LibroMatematica.tex
+latexmk
 ```
 
-Gli artefatti intermedi (`.aux`, `.log`, `.toc`, `.synctex.gz`, …) sono esclusi da git tramite
-[.gitignore](.gitignore). Per ripulirli: `latexmk -C`.
+Il file [latexmkrc](latexmkrc) è già configurato: il PDF finale viene scritto in `dist/`, mentre
+tutti gli intermedi (`.aux`, `.log`, `.toc`, `.synctex.gz`, …) finiscono in `build/`, che è
+escluso da git.
+
+- `latexmk -c` &mdash; rimuove gli intermedi, tiene il PDF.
+- `latexmk -C` &mdash; rimuove tutto, PDF compreso.
+
+Senza `latexmk`, a mano:
+
+```bash
+cd src
+pdflatex LibroMatematica.tex
+pdflatex LibroMatematica.tex   # seconda passata per indice e riferimenti
+```
 
 ## Struttura del repository
 
 ```
 .
-├── LibroMatematica.tex     # sorgente unico del libro (~1900 righe)
-├── LibroMatematica.pdf     # PDF compilato, versionato per la lettura
-├── Copertina dentro i margini.png   # copertina (immagine)
-├── Copertina dentro i margini (18).pdf   # copertina (PDF, dentro i margini di stampa)
-├── LICENSE                 # CC BY-NC-ND 4.0
+├── src/
+│   └── LibroMatematica.tex     # sorgente unico del libro (~1900 righe)
+├── dist/
+│   └── LibroMatematica.pdf     # PDF compilato, versionato per la lettura
+├── cover/
+│   ├── copertina.png           # copertina (immagine)
+│   └── copertina_stampa.pdf    # copertina (PDF, dentro i margini di stampa)
+├── latexmkrc                   # configurazione di compilazione (output in dist/, intermedi in build/)
+├── LICENSE                     # CC BY-NC-ND 4.0
 ├── README.md
-└── .gitignore              # esclude gli artefatti di compilazione LaTeX
+└── .gitignore                  # esclude gli artefatti di compilazione LaTeX e la cartella build/
 ```
+
+Il sorgente è autonomo: non include immagini esterne (le illustrazioni sono disegnate con TikZ),
+quindi `src/LibroMatematica.tex` si compila da solo.
 
 ## Contribuire
 
 Non si accettano opere derivate (lo vieta la licenza), ma **correzioni sì**:
 
 1. Apri una [issue](../../issues) descrivendo l'errore e indicando pagina/sezione.
-2. In alternativa, una pull request che modifica solo `LibroMatematica.tex`, con una breve
+2. In alternativa, una pull request che modifica solo `src/LibroMatematica.tex`, con una breve
    spiegazione della correzione nel messaggio.
 
 Per favore niente riscritture di stile o riorganizzazioni di capitoli: l'ordine e il taglio sono

@@ -36,6 +36,9 @@
 # latexmk
 *.fdb_latexmk
 
+# cartella degli intermedi (vedi latexmkrc)
+/build/
+
 # Editor / sistema
 *.bak
 *.swp
